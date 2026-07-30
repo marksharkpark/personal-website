@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#12141a"/>
+  <circle cx="120" cy="120" r="56" fill="#2f5fd9"/>
+  <text x="120" y="132" font-family="Segoe UI, Arial, sans-serif" font-size="44" font-weight="700"
+        fill="#ffffff" text-anchor="middle">MP</text>
+  <text x="90" y="300" font-family="Segoe UI, Arial, sans-serif" font-size="64" font-weight="700"
+        fill="#eef0f4">Mark Park</text>
+  <text x="90" y="360" font-family="Segoe UI, Arial, sans-serif" font-size="34" font-weight="600"
+        fill="#6b8fef">Software Development Lead (Backend)</text>
+  <text x="90" y="420" font-family="Segoe UI, Arial, sans-serif" font-size="26"
+        fill="#a3a9b7">Enterprise fintech microservices &#183; Java / Spring Boot &#183; AI-assisted engineering</text>
+</svg>
