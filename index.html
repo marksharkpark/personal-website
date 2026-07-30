@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mark Park — Software Development Lead (Backend)</title>
+<meta name="description" content="Mark Park — Software Development Lead (Backend). Enterprise fintech microservices, Java/Spring Boot, distributed systems, AI-assisted engineering.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a class="brand" href="#top">Mark Park</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#ai">AI-Assisted Dev</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <section id="top" class="hero">
+    <p class="eyebrow">La Habra, CA</p>
+    <h1>Mark Park</h1>
+    <p class="title">Software Development Lead (Backend)</p>
+    <p class="hero-summary">
+      5+ years designing and shipping enterprise financial microservices at Franklin Templeton —
+      a domain I entered with no prior financial-systems background and taught myself:
+      banking, settlement, KYC/OFAC compliance. I've taken three products from proof of concept
+      through production, and I lead the way I was mentored: staying hands-on while growing the
+      engineers around me.
+    </p>
+    <div class="hero-links">
+      <a class="btn btn-primary" href="mailto:mark619park@gmail.com">Email Me</a>
+      <a class="btn" href="https://linkedin.com/in/markhpark" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="Resume_MarkPark.pdf" target="_blank" rel="noopener">View Résumé (PDF)</a>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <h2>About</h2>
+    <p>
+      What distinguishes my record is that every step of it was pulled, not pushed. I joined
+      Franklin Templeton as a contractor through Brillio; delivery on my first project earned a
+      two-year extension. The lead architect then hand-picked me to build the base architecture
+      for a second product. Senior architects and my manager recommended me for the lead role on
+      the flagship rebuild, and I was converted from contractor to full-time employee along the
+      way. Each advancement came from people I'd delivered for asking to keep working with me.
+    </p>
+    <p>
+      That ownership extended to production itself. After two years on the transaction-processing
+      system, I became its primary maintainer during live market hours — overseeing a process
+      moving tens of millions of dollars a day that is unusually fragile: time-dependent and
+      strict on data, where any missed window or incomplete information meant a restart or a push
+      to the next business day's settlement. I never allowed a transaction to spill over, which
+      meant coordinating in real time with teams across the firm.
+    </p>
+    <p>
+      I bring the rigor of regulated finance — KYC and OFAC compliance, government audit trails,
+      systems where eliminating production deadlocks entirely is a requirement rather than an
+      achievement — and hold my team to that same bar.
+    </p>
+  </section>
+
+  <section id="experience" class="section">
+    <h2>Experience</h2>
+    <p class="section-sub">Brillio — Client: Franklin Templeton (Remote, from the West Coast on full Eastern-time hours) · May 2021 – Present</p>
+
+    <article class="case-study">
+      <div class="case-header">
+        <h3>Software Development Lead (Backend) — Account Opening Platform 2.0</h3>
+        <span class="case-meta">Ultra-High-Net-Worth Client Onboarding · 2025 – Present</span>
+      </div>
+      <p>
+        Promoted to backend lead on the recommendation of senior architects and management;
+        led a team of up to 5 engineers rebuilding a heavily criticized legacy client-facing
+        platform from POC to MVP to production, serving 500–1,000 daily active users.
+      </p>
+      <ul>
+        <li>Architected the platform's two core microservices along clear domain boundaries: a Drools-based rules engine governing all UI field behavior, and a secure persistence service acting as the sole authorized gateway to internal systems.</li>
+        <li>Led the Java 17→21 migration ahead of the MVP release with minimal disruption to the delivery timeline.</li>
+        <li>Sole backend engineer on-call during live-market hours, monitoring and maintaining services in real time while developing upcoming features.</li>
+        <li>Automated over 60% of previously manual onboarding and KYC logic and improved responsiveness by 60–80% over the legacy platform.</li>
+        <li>Built a generic recursive Cosmos DB save utility on the Patch API supporting arbitrary object structures at 5–10 ms response times, working around a known SDK limitation.</li>
+        <li>Mentored a summer intern new to enterprise Java through shipping several production APIs.</li>
+      </ul>
+    </article>
+
+    <article class="case-study">
+      <div class="case-header">
+        <h3>Backend Engineer — SWP Forms (Systematic Withdrawal Plan)</h3>
+        <span class="case-meta">2024 – 2025</span>
+      </div>
+      <p>
+        Hand-picked by the lead architect to build a standalone Drools rules-engine microservice;
+        cut processing time for 500+ business rules from several seconds to 50–100 ms using fact
+        injection, agenda groups, and salience-based prioritization. Delivered the base
+        architecture and MVP in 3 months before handoff; later extended to power a second
+        production application.
+      </p>
+    </article>
+
+    <article class="case-study">
+      <div class="case-header">
+        <h3>Backend Developer — CashApp (Financial Transaction System)</h3>
+        <span class="case-meta">2021 – 2024</span>
+      </div>
+      <p>
+        Mentored by a 20-year architect on a 3-person team; became a primary contributor on core
+        transaction-processing design across an 18-month POC-to-MVP build and 2 years of
+        enhancements. Became the team's primary production maintainer, personally overseeing
+        live market-hours processing of transactions worth tens of millions of dollars daily.
+      </p>
+      <ul>
+        <li>Owned the end-to-end financial processing lifecycle for $10M+ in daily transactions ($106B+ lifetime): bank confirmations, OFAC compliance scans, and government audit-trail processing.</li>
+        <li>Eliminated production deadlock failures — from 2–5 incidents per day to zero — via optimistic concurrency control, retryable services, and custom thread pool executors.</li>
+        <li>Designed an event-driven architecture on Azure Event Grid powering 20+ heavy scheduled jobs, several on 5-minute cycles, including OFAC scanning and bank posting.</li>
+        <li>Implemented SAGA choreography over RabbitMQ for cross-service transactions, later migrating messaging to Azure Service Bus.</li>
+        <li>Assisted the team's Java 8→21 upgrade and drove post-MVP enhancements, including FIS Global Plus posting integration and Azure-based check-reading AI.</li>
+        <li>Led technical design discussions across cross-functional groups of 20–30 with product owners and business analysts.</li>
+      </ul>
+    </article>
+  </section>
+
+  <section id="ai" class="section">
+    <h2>AI-Assisted Development</h2>
+    <p>
+      I've made AI-assisted development central to how I work. Since Franklin Templeton adopted
+      GitHub Copilot firm-wide in January 2026, I've ranked in the firm's top 5% on cost-efficiency
+      — prompt spend versus code accepted — by planning solutions before writing code and always
+      reviewing and testing what the tools produce.
+    </p>
+    <p>
+      I've also pushed past what the company provided: independently adopting Claude Code and
+      running parallel instances via git worktrees to advance multiple workstreams concurrently,
+      using AI assistance to confidently extend delivery beyond backend into front-end and
+      DevOps work — all while retaining ownership of architecture, review, and correctness.
+    </p>
+  </section>
+
+  <section id="skills" class="section">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h3>Languages</h3>
+        <p>Java 8/17/21 (multi-version migrations), Python, C++, SQL, JavaScript (ES6), TypeScript</p>
+      </div>
+      <div class="skill-group">
+        <h3>Backend &amp; Frameworks</h3>
+        <p>Spring Boot, Spring MVC, Spring Security, Spring Cloud (Eureka, Feign, API Gateway), Hibernate/JPA, REST APIs, Microservices, Drools (BRMS), Camunda, SAGA Choreography, Event-Driven Architecture</p>
+      </div>
+      <div class="skill-group">
+        <h3>Cloud &amp; Infrastructure</h3>
+        <p>Azure (Service Bus, Event Grid, Cosmos DB), AWS (EC2, S3, ECS, Elastic Beanstalk), Docker, RabbitMQ, Redis</p>
+      </div>
+      <div class="skill-group">
+        <h3>Databases</h3>
+        <p>MSSQL, MySQL, MongoDB, Azure Cosmos DB</p>
+      </div>
+      <div class="skill-group">
+        <h3>AI-Assisted Development</h3>
+        <p>GitHub Copilot (premium/multi-model), Claude Code (parallel git-worktree workflows), prompt-driven development, AI-augmented code review</p>
+      </div>
+      <div class="skill-group">
+        <h3>Concurrency</h3>
+        <p>Multithreading, custom thread pool executors, optimistic concurrency control, retryable services, deadlock resolution</p>
+      </div>
+      <div class="skill-group">
+        <h3>Testing &amp; Tools</h3>
+        <p>JUnit, Mockito, JaCoCo, Postman, Maven, Git/GitHub, Jira, Agile/Scrum, Kanban</p>
+      </div>
+      <div class="skill-group">
+        <h3>Education</h3>
+        <p>San Diego State University — B.S. Computer Science, 2021</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section contact-section">
+    <h2>Get In Touch</h2>
+    <p>I'd welcome the chance to talk about how I can contribute to your team.</p>
+    <div class="hero-links">
+      <a class="btn btn-primary" href="mailto:mark619park@gmail.com">mark619park@gmail.com</a>
+      <a class="btn" href="https://linkedin.com/in/markhpark" target="_blank" rel="noopener">linkedin.com/in/markhpark</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Mark Park.</p>
+</footer>
+
+</body>
+</html>
