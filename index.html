@@ -19,6 +19,7 @@
 <meta name="twitter:image" content="https://mark-park.com/og-image.svg">
 
 <link rel="stylesheet" href="style.css">
+<noscript><style>.section { opacity: 1; transform: none; }</style></noscript>
 
 <script type="application/ld+json">
 {
@@ -54,7 +55,12 @@
 <header class="site-header">
   <nav class="nav">
     <a class="brand" href="#top">Mark Park</a>
-    <div class="nav-links">
+    <button class="nav-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+    <div class="nav-links" id="nav-links">
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
       <a href="#ai">AI-Assisted Dev</a>
@@ -67,7 +73,7 @@
 <main>
 
   <section id="top" class="hero">
-    <img class="hero-photo" src="headshot.jpg" alt="Mark Park" width="600" height="600">
+    <img class="hero-photo" src="headshot.jpg" alt="Mark Park" width="400" height="400">
     <p class="eyebrow">La Habra, CA</p>
     <h1>Mark Park</h1>
     <p class="title">Software Development Lead (Backend)</p>
@@ -209,35 +215,35 @@
     <div class="skills-grid">
       <div class="skill-group">
         <h3>Languages</h3>
-        <p>Java 8/17/21 (multi-version migrations), Python, C++, SQL, JavaScript (ES6), TypeScript</p>
+        <p><span class="skill-chip">Java 8/17/21 (multi-version migrations)</span><span class="skill-chip">Python</span><span class="skill-chip">C++</span><span class="skill-chip">SQL</span><span class="skill-chip">JavaScript (ES6)</span><span class="skill-chip">TypeScript</span></p>
       </div>
       <div class="skill-group">
         <h3>Backend &amp; Frameworks</h3>
-        <p>Spring Boot, Spring MVC, Spring Security, Spring Cloud (Eureka, Feign, API Gateway), Hibernate/JPA, REST APIs, Microservices, Drools (BRMS), Camunda, SAGA Choreography, Event-Driven Architecture</p>
+        <p><span class="skill-chip">Spring Boot</span><span class="skill-chip">Spring MVC</span><span class="skill-chip">Spring Security</span><span class="skill-chip">Spring Cloud (Eureka, Feign, API Gateway)</span><span class="skill-chip">Hibernate/JPA</span><span class="skill-chip">REST APIs</span><span class="skill-chip">Microservices</span><span class="skill-chip">Drools (BRMS)</span><span class="skill-chip">Camunda</span><span class="skill-chip">SAGA Choreography</span><span class="skill-chip">Event-Driven Architecture</span></p>
       </div>
       <div class="skill-group">
         <h3>Cloud &amp; Infrastructure</h3>
-        <p>Azure (Service Bus, Event Grid, Cosmos DB), AWS (EC2, S3, ECS, Elastic Beanstalk), Docker, RabbitMQ, Redis</p>
+        <p><span class="skill-chip">Azure (Service Bus, Event Grid, Cosmos DB)</span><span class="skill-chip">AWS (EC2, S3, ECS, Elastic Beanstalk)</span><span class="skill-chip">Docker</span><span class="skill-chip">RabbitMQ</span><span class="skill-chip">Redis</span></p>
       </div>
       <div class="skill-group">
         <h3>Databases</h3>
-        <p>MSSQL, MySQL, MongoDB, Azure Cosmos DB</p>
+        <p><span class="skill-chip">MSSQL</span><span class="skill-chip">MySQL</span><span class="skill-chip">MongoDB</span><span class="skill-chip">Azure Cosmos DB</span></p>
       </div>
       <div class="skill-group">
         <h3>AI-Assisted Development</h3>
-        <p>GitHub Copilot (premium/multi-model), Claude Code (parallel git-worktree workflows), prompt-driven development, AI-augmented code review</p>
+        <p><span class="skill-chip">GitHub Copilot (premium/multi-model)</span><span class="skill-chip">Claude Code (parallel git-worktree workflows)</span><span class="skill-chip">prompt-driven development</span><span class="skill-chip">AI-augmented code review</span></p>
       </div>
       <div class="skill-group">
         <h3>Concurrency</h3>
-        <p>Multithreading, custom thread pool executors, optimistic concurrency control, retryable services, deadlock resolution</p>
+        <p><span class="skill-chip">Multithreading</span><span class="skill-chip">custom thread pool executors</span><span class="skill-chip">optimistic concurrency control</span><span class="skill-chip">retryable services</span><span class="skill-chip">deadlock resolution</span></p>
       </div>
       <div class="skill-group">
         <h3>Testing &amp; Tools</h3>
-        <p>JUnit, Mockito, JaCoCo, Postman, Maven, Git/GitHub, Jira, Agile/Scrum, Kanban</p>
+        <p><span class="skill-chip">JUnit</span><span class="skill-chip">Mockito</span><span class="skill-chip">JaCoCo</span><span class="skill-chip">Postman</span><span class="skill-chip">Maven</span><span class="skill-chip">Git/GitHub</span><span class="skill-chip">Jira</span><span class="skill-chip">Agile/Scrum</span><span class="skill-chip">Kanban</span></p>
       </div>
       <div class="skill-group">
         <h3>Education</h3>
-        <p>San Diego State University — B.S. Computer Science, 2021</p>
+        <p class="skill-text">San Diego State University — B.S. Computer Science, 2021</p>
       </div>
     </div>
   </section>
@@ -256,6 +262,65 @@
 <footer class="site-footer">
   <p>&copy; 2026 Mark Park.</p>
 </footer>
+
+<script>
+  var sections = document.querySelectorAll('.section');
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!('IntersectionObserver' in window) || reduceMotion) {
+    sections.forEach(function (section) { section.classList.add('in-view'); });
+  } else {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    sections.forEach(function (section) { observer.observe(section); });
+  }
+
+  var navToggle = document.querySelector('.nav-toggle');
+  var navLinksEl = document.getElementById('nav-links');
+
+  if (navToggle && navLinksEl) {
+    navToggle.addEventListener('click', function () {
+      var isOpen = navLinksEl.classList.toggle('open');
+      navToggle.classList.toggle('open', isOpen);
+      navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    navLinksEl.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        navLinksEl.classList.remove('open');
+        navToggle.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  if ('IntersectionObserver' in window) {
+    var navLinks = document.querySelectorAll('.nav-links a');
+    var navLinkMap = {};
+    navLinks.forEach(function (link) {
+      navLinkMap[link.getAttribute('href').slice(1)] = link;
+    });
+
+    var spySections = document.querySelectorAll('#about, #experience, #ai, #skills, #contact');
+    var spyObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var link = navLinkMap[entry.target.id];
+        if (!link || !entry.isIntersecting) return;
+        navLinks.forEach(function (l) { l.classList.remove('active'); });
+        link.classList.add('active');
+      });
+    }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+
+    spySections.forEach(function (section) { spyObserver.observe(section); });
+  }
+</script>
 
 <script data-goatcounter="https://markpark.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
