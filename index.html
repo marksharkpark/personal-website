@@ -70,6 +70,14 @@
   </nav>
 </header>
 
+<nav class="side-rail" aria-label="Section navigation">
+  <a href="#about"><span class="rail-label">About</span><span class="dot"></span></a>
+  <a href="#experience"><span class="rail-label">Experience</span><span class="dot"></span></a>
+  <a href="#ai"><span class="rail-label">AI-Assisted Dev</span><span class="dot"></span></a>
+  <a href="#skills"><span class="rail-label">Skills</span><span class="dot"></span></a>
+  <a href="#contact"><span class="rail-label">Contact</span><span class="dot"></span></a>
+</nav>
+
 <main>
 
   <section id="top" class="hero">
@@ -302,19 +310,20 @@
   }
 
   if ('IntersectionObserver' in window) {
-    var navLinks = document.querySelectorAll('.nav-links a');
-    var navLinkMap = {};
+    var navLinks = document.querySelectorAll('.nav-links a, .side-rail a');
+    var navLinkGroups = {};
     navLinks.forEach(function (link) {
-      navLinkMap[link.getAttribute('href').slice(1)] = link;
+      var id = link.getAttribute('href').slice(1);
+      (navLinkGroups[id] = navLinkGroups[id] || []).push(link);
     });
 
     var spySections = document.querySelectorAll('#about, #experience, #ai, #skills, #contact');
     var spyObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        var link = navLinkMap[entry.target.id];
-        if (!link || !entry.isIntersecting) return;
+        var group = navLinkGroups[entry.target.id];
+        if (!group || !entry.isIntersecting) return;
         navLinks.forEach(function (l) { l.classList.remove('active'); });
-        link.classList.add('active');
+        group.forEach(function (l) { l.classList.add('active'); });
       });
     }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
 
