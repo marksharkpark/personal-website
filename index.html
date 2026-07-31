@@ -317,17 +317,38 @@
       (navLinkGroups[id] = navLinkGroups[id] || []).push(link);
     });
 
+    function setActiveGroup(id) {
+      var group = navLinkGroups[id];
+      if (!group) return;
+      navLinks.forEach(function (l) { l.classList.remove('active'); });
+      group.forEach(function (l) { l.classList.add('active'); });
+    }
+
     var spySections = document.querySelectorAll('#about, #experience, #ai, #skills, #contact');
     var spyObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        var group = navLinkGroups[entry.target.id];
-        if (!group || !entry.isIntersecting) return;
-        navLinks.forEach(function (l) { l.classList.remove('active'); });
-        group.forEach(function (l) { l.classList.add('active'); });
+        if (!entry.isIntersecting) return;
+        setActiveGroup(entry.target.id);
       });
     }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
 
     spySections.forEach(function (section) { spyObserver.observe(section); });
+
+    // The center-band detector above can't always reach the last section once
+    // scrolling hits the bottom of the page, so force it active in that case.
+    var lastSectionId = spySections[spySections.length - 1].id;
+    var bottomTicking = false;
+    function checkScrolledToBottom() {
+      bottomTicking = false;
+      var scrolledToBottom = window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2;
+      if (scrolledToBottom) setActiveGroup(lastSectionId);
+    }
+    window.addEventListener('scroll', function () {
+      if (!bottomTicking) {
+        bottomTicking = true;
+        window.requestAnimationFrame(checkScrolledToBottom);
+      }
+    }, { passive: true });
   }
 </script>
 
