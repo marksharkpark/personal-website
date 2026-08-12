@@ -61,8 +61,8 @@
       <span class="nav-toggle-bar"></span>
     </button>
     <div class="nav-links" id="nav-links">
-      <a href="#about">About</a>
       <a href="#experience">Experience</a>
+      <a href="#about">About</a>
       <a href="#ai">AI-Assisted Dev</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
@@ -71,8 +71,8 @@
 </header>
 
 <nav class="side-rail" aria-label="Section navigation">
-  <a href="#about"><span class="rail-label">About</span><span class="dot"></span></a>
   <a href="#experience"><span class="rail-label">Experience</span><span class="dot"></span></a>
+  <a href="#about"><span class="rail-label">About</span><span class="dot"></span></a>
   <a href="#ai"><span class="rail-label">AI-Assisted Dev</span><span class="dot"></span></a>
   <a href="#skills"><span class="rail-label">Skills</span><span class="dot"></span></a>
   <a href="#contact"><span class="rail-label">Contact</span><span class="dot"></span></a>
@@ -116,40 +116,6 @@
         <span class="hero-stat-label">daily active users served</span>
       </div>
     </div>
-  </section>
-
-  <section id="about" class="section">
-    <h2>About</h2>
-    <p>
-      What distinguishes my record is that every step of it was pulled, not pushed. I joined
-      Franklin Templeton as a contractor through Brillio; delivery on my first project earned a
-      two-year extension. The lead architect then hand-picked me to build the base architecture
-      for a second product. Senior architects and my manager recommended me for the lead role on
-      the flagship rebuild, and I was converted from contractor to full-time employee along the
-      way. Each advancement came from people I'd delivered for asking to keep working with me.
-    </p>
-    <p>
-      That ownership extended to production itself. After two years on the transaction-processing
-      system, I became its primary maintainer during live market hours, overseeing a process
-      that moves tens of millions of dollars a day and is unusually fragile: time-dependent and
-      strict on data, where any missed window or incomplete information meant a restart or a push
-      to the next business day's settlement. I never allowed a transaction to spill over, which
-      meant coordinating in real time with teams across the firm.
-    </p>
-    <p>
-      I bring the rigor of regulated finance, things like KYC and OFAC compliance, government
-      audit trails, and systems where eliminating production deadlocks entirely is a requirement
-      rather than an achievement, and I hold my team to that same bar.
-    </p>
-    <p>
-      I try to stay a student first. I had no finance background when I joined Franklin Templeton,
-      and teaching myself banking, settlement, and compliance from zero showed me I can pick up
-      almost anything given enough time, so I keep pushing for the next thing I don't know yet
-      instead of settling into what I've already learned. AI is part of that now too. It's made
-      learning new tools and ideas faster than I expected, and I want to see how far that goes.
-      Still, I'm careful with it: I use it to move faster, not to skip the part where I actually
-      understand what I'm building.
-    </p>
   </section>
 
   <section id="experience" class="section">
@@ -276,6 +242,40 @@
         <li>Led technical design discussions across cross-functional groups of 20–30 with product owners and business analysts.</li>
       </ul>
     </article>
+  </section>
+
+  <section id="about" class="section">
+    <h2>About</h2>
+    <p>
+      What distinguishes my record is that every step of it was pulled, not pushed. I joined
+      Franklin Templeton as a contractor through Brillio; delivery on my first project earned a
+      two-year extension. The lead architect then hand-picked me to build the base architecture
+      for a second product. Senior architects and my manager recommended me for the lead role on
+      the flagship rebuild, and I was converted from contractor to full-time employee along the
+      way. Each advancement came from people I'd delivered for asking to keep working with me.
+    </p>
+    <p>
+      That ownership extended to production itself. After two years on the transaction-processing
+      system, I became its primary maintainer during live market hours, overseeing a process
+      that moves tens of millions of dollars a day and is unusually fragile: time-dependent and
+      strict on data, where any missed window or incomplete information meant a restart or a push
+      to the next business day's settlement. I never allowed a transaction to spill over, which
+      meant coordinating in real time with teams across the firm.
+    </p>
+    <p>
+      I bring the rigor of regulated finance, things like KYC and OFAC compliance, government
+      audit trails, and systems where eliminating production deadlocks entirely is a requirement
+      rather than an achievement, and I hold my team to that same bar.
+    </p>
+    <p>
+      I try to stay a student first. I had no finance background when I joined Franklin Templeton,
+      and teaching myself banking, settlement, and compliance from zero showed me I can pick up
+      almost anything given enough time, so I keep pushing for the next thing I don't know yet
+      instead of settling into what I've already learned. AI is part of that now too. It's made
+      learning new tools and ideas faster than I expected, and I want to see how far that goes.
+      Still, I'm careful with it: I use it to move faster, not to skip the part where I actually
+      understand what I'm building.
+    </p>
   </section>
 
   <section id="ai" class="section">
@@ -408,7 +408,7 @@
       group.forEach(function (l) { l.classList.add('active'); });
     }
 
-    var spySections = document.querySelectorAll('#about, #experience, #ai, #skills, #contact');
+    var spySections = document.querySelectorAll('#experience, #about, #ai, #skills, #contact');
     var spyObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
