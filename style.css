@@ -443,22 +443,36 @@ main {
 }
 
 .arch-diagram {
-  margin: 1.5rem 0 0;
+  margin: 1.5rem -2rem 0 calc(-2rem - 1rem - 3px);
   overflow-x: auto;
 }
 
 .arch-diagram svg {
   display: block;
   width: 100%;
-  min-width: 560px;
+  min-width: 460px;
   height: auto;
   color: var(--text);
 }
 
+@media (max-width: 480px) {
+  .arch-diagram {
+    margin-left: calc(-1.25rem - 1rem - 3px);
+    margin-right: -1.25rem;
+  }
+}
+
 .arch-diagram figcaption {
   margin-top: 0.6rem;
+  padding: 0 2rem 0 calc(2rem + 1rem + 3px);
   font-size: 0.85rem;
   color: var(--text-muted);
+}
+
+@media (max-width: 480px) {
+  .arch-diagram figcaption {
+    padding: 0 1.25rem 0 calc(1.25rem + 1rem + 3px);
+  }
 }
 
 .skills-grid {

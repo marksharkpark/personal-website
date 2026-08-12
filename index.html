@@ -177,54 +177,68 @@
       </ul>
 
       <figure class="arch-diagram">
-        <svg viewBox="0 0 760 410" role="img" aria-label="Architecture diagram: the Drools rules engine and client UI exchange triggers and form state; the client UI and persistence service exchange pushed and returned data; the persistence service makes external API calls to outside microservices (internal systems) and returns that data to the client UI; for one specific case, the persistence service also calls the rules engine synchronously, waits for its response, and updates data based on that response, shown as a dashed line since it's scoped to that one case rather than the general flow; the rules engine itself never calls those outside microservices; internal systems also feed the SWP Forms application.">
+        <svg viewBox="0 0 770 520" role="img" aria-label="Architecture diagram: the Drools rules engine and client UI exchange triggers and form state; the client UI and persistence service exchange pushed and returned data; the persistence service directly reads and writes its own database (Cosmos DB and MSSQL); the persistence service also makes external API calls to domain services, the only outside microservices it's authorized to reach; domain services pull from a Snowflake database; the persistence service itself also feeds the separate SWP Forms application; for one specific case, shown dashed, the persistence service also calls the rules engine synchronously and updates data based on the response; the rules engine itself never calls domain services or Snowflake.">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
               <path d="M0,0 L10,5 L0,10 z" fill="currentColor"></path>
             </marker>
           </defs>
 
-          <rect x="20" y="160" width="150" height="64" rx="10" fill="none" stroke="currentColor" stroke-width="1.5"></rect>
-          <text x="95" y="187" text-anchor="middle" font-size="15" font-weight="600" fill="currentColor">Client UI</text>
-          <text x="95" y="206" text-anchor="middle" font-size="13" fill="currentColor" opacity="0.65">onboarding form</text>
+          <rect x="35" y="160" width="130" height="64" rx="10" fill="none" stroke="currentColor" stroke-width="1.5"></rect>
+          <text x="100" y="187" text-anchor="middle" font-size="14" font-weight="600" fill="currentColor">Client UI</text>
+          <text x="100" y="206" text-anchor="middle" font-size="12" fill="currentColor" opacity="0.65">Onboarding form</text>
 
-          <rect x="300" y="40" width="200" height="64" rx="10" fill="none" stroke="currentColor" stroke-width="1.5"></rect>
-          <text x="400" y="67" text-anchor="middle" font-size="15" font-weight="600" fill="currentColor">Rules Engine</text>
-          <text x="400" y="86" text-anchor="middle" font-size="13" fill="currentColor" opacity="0.65">Drools · field behavior</text>
+          <rect x="190" y="40" width="185" height="64" rx="10" fill="none" stroke="currentColor" stroke-width="1.5"></rect>
+          <text x="282" y="67" text-anchor="middle" font-size="14" font-weight="600" fill="currentColor">Rules Engine</text>
+          <text x="282" y="86" text-anchor="middle" font-size="12" fill="currentColor" opacity="0.65">Drools · field behavior</text>
 
-          <rect x="300" y="280" width="200" height="64" rx="10" fill="none" stroke="var(--accent)" stroke-width="2"></rect>
-          <text x="400" y="307" text-anchor="middle" font-size="15" font-weight="600" fill="currentColor">Persistence Service</text>
-          <text x="400" y="326" text-anchor="middle" font-size="13" fill="currentColor" opacity="0.65">sole authorized gateway</text>
+          <rect x="190" y="280" width="185" height="64" rx="10" fill="none" stroke="var(--accent)" stroke-width="2"></rect>
+          <text x="282" y="307" text-anchor="middle" font-size="14" font-weight="600" fill="currentColor">Persistence Service</text>
+          <text x="282" y="326" text-anchor="middle" font-size="12" fill="currentColor" opacity="0.65">Sole authorized gateway</text>
 
-          <rect x="580" y="210" width="160" height="64" rx="10" fill="none" stroke="currentColor" stroke-width="1.5"></rect>
-          <text x="660" y="237" text-anchor="middle" font-size="15" font-weight="600" fill="currentColor">Internal Systems</text>
-          <text x="660" y="256" text-anchor="middle" font-size="13" fill="currentColor" opacity="0.65">KYC / OFAC / banking</text>
+          <rect x="190" y="430" width="185" height="64" rx="10" fill="none" stroke="currentColor" stroke-width="1.5"></rect>
+          <text x="282" y="457" text-anchor="middle" font-size="14" font-weight="600" fill="currentColor">Database</text>
+          <text x="282" y="476" text-anchor="middle" font-size="12" fill="currentColor" opacity="0.65">Cosmos DB · MSSQL</text>
 
-          <rect x="580" y="330" width="160" height="64" rx="10" fill="none" stroke="currentColor" stroke-width="1.5"></rect>
-          <text x="660" y="357" text-anchor="middle" font-size="15" font-weight="600" fill="currentColor">SWP Forms</text>
-          <text x="660" y="376" text-anchor="middle" font-size="13" fill="currentColor" opacity="0.65">withdrawal plan app</text>
+          <rect x="420" y="210" width="155" height="64" rx="10" fill="none" stroke="currentColor" stroke-width="1.5"></rect>
+          <text x="497" y="237" text-anchor="middle" font-size="14" font-weight="600" fill="currentColor">Domain Services</text>
+          <text x="497" y="256" text-anchor="middle" font-size="12" fill="currentColor" opacity="0.65">KYC / OFAC / banking</text>
 
-          <polyline points="170,192 240,192 240,72 300,72" fill="none" stroke="currentColor" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"></polyline>
-          <text x="250" y="135" font-size="13" fill="currentColor" opacity="0.75">triggers / form state</text>
+          <rect x="420" y="330" width="155" height="64" rx="10" fill="none" stroke="currentColor" stroke-width="1.5"></rect>
+          <text x="497" y="357" text-anchor="middle" font-size="14" font-weight="600" fill="currentColor">SWP Forms</text>
+          <text x="497" y="376" text-anchor="middle" font-size="12" fill="currentColor" opacity="0.65">Withdrawal plan app</text>
 
-          <polyline points="95,224 95,312 300,312" fill="none" stroke="currentColor" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"></polyline>
-          <text x="105" y="270" font-size="13" fill="currentColor" opacity="0.75">push / return data</text>
+          <rect x="620" y="210" width="130" height="64" rx="10" fill="none" stroke="currentColor" stroke-width="1.5"></rect>
+          <text x="685" y="237" text-anchor="middle" font-size="14" font-weight="600" fill="currentColor">Snowflake</text>
+          <text x="685" y="256" text-anchor="middle" font-size="12" fill="currentColor" opacity="0.65">Data warehouse</text>
 
-          <polyline points="400,280 400,104" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="5 4" opacity="0.7" marker-start="url(#arrow)" marker-end="url(#arrow)"></polyline>
-          <text x="408" y="196" font-size="13" fill="currentColor" opacity="0.65">specific case</text>
+          <polyline points="165,192 177,192 177,72 190,72" fill="none" stroke="currentColor" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"></polyline>
+          <text x="185" y="132" font-size="12" fill="currentColor" opacity="0.75">triggers / form state</text>
 
-          <polyline points="500,312 545,312 545,242 580,242" fill="none" stroke="var(--accent)" stroke-width="2" marker-start="url(#arrow)" marker-end="url(#arrow)"></polyline>
-          <text x="552" y="300" font-size="13" fill="currentColor" opacity="0.75">external API calls</text>
+          <polyline points="165,210 177,210 177,312 190,312" fill="none" stroke="currentColor" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"></polyline>
+          <text x="185" y="258" font-size="12" fill="currentColor" opacity="0.75">push / return data</text>
 
-          <polyline points="660,274 660,330" fill="none" stroke="currentColor" stroke-width="1.5" marker-end="url(#arrow)"></polyline>
-          <text x="668" y="306" font-size="13" fill="currentColor" opacity="0.75">provides data</text>
+          <polyline points="282,280 282,104" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="5 4" opacity="0.7" marker-start="url(#arrow)" marker-end="url(#arrow)"></polyline>
+          <text x="285" y="192" font-size="12" fill="currentColor" opacity="0.65">specific case</text>
 
-          <polyline points="500,72 560,72 560,180" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.55"></polyline>
-          <line x1="553" y1="179" x2="567" y2="193" stroke="currentColor" stroke-width="1.5" opacity="0.55"></line>
-          <line x1="567" y1="179" x2="553" y2="193" stroke="currentColor" stroke-width="1.5" opacity="0.55"></line>
-          <text x="572" y="190" font-size="13" fill="currentColor" opacity="0.65">no direct access</text>
+          <polyline points="282,344 282,430" fill="none" stroke="currentColor" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"></polyline>
+          <text x="290" y="387" font-size="12" fill="currentColor" opacity="0.75">reads / writes</text>
+
+          <polyline points="375,300 397,300 397,242 420,242" fill="none" stroke="var(--accent)" stroke-width="2" marker-start="url(#arrow)" marker-end="url(#arrow)"></polyline>
+          <text x="420" y="200" font-size="12" fill="currentColor" opacity="0.75">external API calls</text>
+
+          <polyline points="575,242 620,242" fill="none" stroke="currentColor" stroke-width="1.5" marker-start="url(#arrow)" marker-end="url(#arrow)"></polyline>
+          <text x="580" y="200" font-size="12" fill="currentColor" opacity="0.75">pulls from</text>
+
+          <polyline points="375,324 405,324 405,362 420,362" fill="none" stroke="currentColor" stroke-width="1.5" marker-end="url(#arrow)"></polyline>
+          <text x="415" y="345" text-anchor="end" font-size="12" fill="currentColor" opacity="0.75">feeds</text>
+
+          <polyline points="375,72 390,72 390,155" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.55"></polyline>
+          <line x1="383" y1="154" x2="397" y2="168" stroke="currentColor" stroke-width="1.5" opacity="0.55"></line>
+          <line x1="397" y1="154" x2="383" y2="168" stroke="currentColor" stroke-width="1.5" opacity="0.55"></line>
+          <text x="402" y="165" font-size="12" fill="currentColor" opacity="0.65">no direct access</text>
         </svg>
-        <figcaption>The persistence service is the only component that calls outside microservices, and returns that data to the client UI. For one specific case (dashed), it also calls the rules engine synchronously, waits for the response, and updates data based on it. The rules engine itself never reaches those outside systems, which also feed the SWP Forms application.</figcaption>
+        <figcaption>The persistence service directly reads and writes its own database (Cosmos DB and MSSQL), and separately calls domain services, the only outside microservices it's authorized to reach; those domain services pull from Snowflake. The persistence service itself also feeds the separate SWP Forms application. For one specific case (dashed), it also calls the rules engine synchronously and updates data based on the response. The rules engine itself never reaches domain services or Snowflake.</figcaption>
       </figure>
     </article>
 
