@@ -286,25 +286,32 @@
   <section id="ai" class="section">
     <h2>AI-Assisted Development</h2>
     <p>
-      AI-assisted development is a big part of how I work day to day. Since Franklin Templeton
-      rolled out GitHub Copilot firm-wide in January 2026, I've stayed in the top 5% of the team
-      on cost-efficiency, meaning prompt spend versus code actually accepted, because I plan out
-      the solution first and always review and test whatever the tool produces.
+      Since Franklin Templeton rolled out GitHub Copilot firm-wide in January 2026, I've ranked in
+      the top 5% of users on cost-efficiency — prompt spend versus code accepted — with over 30,000
+      lines of AI-assisted code accepted into production.
     </p>
     <p>
-      I didn't stop at what the company gave us, either. I started using Claude Code on my own,
-      running a few instances in parallel with git worktrees so I could work on more than one
-      piece of a project at a time. It's let me take on front-end and DevOps work I wouldn't have
-      touched otherwise, but I still review everything myself and own the architecture and the
-      calls I make. I've since taken that further, leading my team's shift to AI CLI-driven
-      development and onboarding fellow engineers onto prompt-driven workflows.
+      The practice I built around it is test-driven at its core. Test suites are written from
+      business requirements first; AI agents implement against them; and every change is gated by
+      agent-driven code review and agent-authored pull requests via GitHub MCP on Copilot CLI —
+      under a standing rule that existing functional tests are never broken.
     </p>
     <p>
-      Being the main architect on these platforms also put me in charge of the reference docs the
-      AI tools actually use: markdown files covering both the front-end and backend that explain
-      how everything fits together. I keep them updated almost daily, especially for the weird
-      edge cases, so the AI can work from a clear explanation instead of burning tokens re-reading
-      the codebase every time.
+      I packaged that discipline into a shared copilot-instructions.md (architecture, coding
+      standards, code-comment conventions, and structured commit messages keyed to Jira ID,
+      causation, and rationale), custom CLI commands with Jira integration, and a Python tool that
+      aligns database schemas and data across environments — all adopted by other projects. I then
+      ran knowledge-transfer sessions on prompt and loop engineering that onboarded my whole AOP 2.0
+      team and the leads of CashApp and SWP Forms.
+    </p>
+    <p>
+      I first taught myself these workflows on personal time with Claude Code — parallel
+      git-worktree instances to move several parts of a project at once — and translated them onto the
+      firm-approved Copilot CLI as soon as it was enabled. That's also what let me grow from backend
+      lead into full-stack work, delivering Angular UI features alongside the Spring Boot services.
+    </p>
+    <p>
+      I use AI to move faster, not to skip the part where I actually understand what I'm building.
     </p>
   </section>
 
