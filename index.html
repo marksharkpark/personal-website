@@ -4,18 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mark Park — Lead Software Engineer</title>
-<meta name="description" content="Mark Park — Lead Software Engineer. Enterprise fintech microservices, Java/Spring Boot, distributed systems, AI-assisted engineering.">
+<meta name="description" content="Mark Park — Lead Software Engineer. Client onboarding and money-movement platforms in regulated finance: Java/Spring microservices, Angular, Azure, Drools, and AI-first, TDD-gated engineering.">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Mark Park — Lead Software Engineer">
-<meta property="og:description" content="Enterprise fintech microservices, Java/Spring Boot, distributed systems, AI-assisted engineering.">
+<meta property="og:description" content="Client onboarding and money-movement platforms in regulated finance: Java/Spring microservices, Angular, Azure, Drools, and AI-first, TDD-gated engineering.">
 <meta property="og:url" content="https://mark-park.com/">
 <meta property="og:image" content="https://mark-park.com/og-image.svg">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Mark Park — Lead Software Engineer">
-<meta name="twitter:description" content="Enterprise fintech microservices, Java/Spring Boot, distributed systems, AI-assisted engineering.">
+<meta name="twitter:description" content="Client onboarding and money-movement platforms in regulated finance: Java/Spring microservices, Angular, Azure, Drools, and AI-first, TDD-gated engineering.">
 <meta name="twitter:image" content="https://mark-park.com/og-image.svg">
 
 <link rel="stylesheet" href="style.css">
@@ -86,11 +86,13 @@
     <h1>Mark Park</h1>
     <p class="title">Lead Software Engineer</p>
     <p class="hero-summary">
-      4+ years designing and shipping enterprise financial microservices at Franklin Templeton, a
-      domain I entered with no prior financial-systems background. I taught myself banking,
-      settlement, and KYC/OFAC compliance along the way. I've taken three products from proof of
-      concept through production, and I lead the way I was mentored: staying hands-on while
-      growing the engineers around me.
+      4+ years building Franklin Templeton Wealth Management Technology's client-onboarding and
+      money-movement platforms, a domain I entered with no prior financial-systems background.
+      Founding engineer and backend lead of the Account Lifecycle Platform (AOP 2.0) rebuild for
+      the High Net Worth business, and earlier one of two primary production maintainers of
+      CashApp, the firm's money-movement platform. I've taken three products from proof of concept
+      through production, and I lead the way I was mentored: staying hands-on while growing the
+      engineers around me.
     </p>
     <div class="hero-links">
       <a class="btn btn-primary" href="mailto:markhpark619@gmail.com">Email Me</a>
@@ -120,32 +122,35 @@
 
   <section id="experience" class="section">
     <h2>Experience</h2>
-    <p class="section-sub">Brillio, client: Franklin Templeton (Remote, from the West Coast on full Eastern-time hours) · May 2022 – Present</p>
+    <p class="section-sub">Brillio — Client: Franklin Templeton (Fiduciary Trust), Wealth Management Technology · Remote from California on full Eastern-time hours · Contract Software Engineer, May 2022 – Jun 2025 → Software Development Lead (full-time), Jun 2025 – Present</p>
 
     <article class="case-study">
       <div class="case-header">
-        <h3>Lead Software Engineer — Account Opening Platform 2.0</h3>
-        <span class="case-meta">Ultra-High-Net-Worth Client Onboarding · Aug 2024 – Present</span>
+        <h3>Lead Software Engineer — Account Lifecycle Platform (AOP 2.0)</h3>
+        <span class="case-meta">High Net Worth Client Onboarding · Aug 2024 – Present</span>
       </div>
       <p>
-        Promoted to lead the backend engineering effort on the recommendation of senior architects and management;
-        led a team of up to 5 engineers rebuilding a heavily criticized legacy client-facing
-        platform from POC to MVP to production, serving 500–1,000 daily active users.
+        Founding engineer on the rebuild; promoted to lead backend engineering on the recommendation of
+        senior architects and management. Led a team of up to 5 engineers taking a heavily criticized
+        legacy client-facing onboarding platform from POC to MVP to production, serving 500–1,000 daily
+        active users.
       </p>
       <ul>
         <li>Platform's production release was recognized by leadership as a successful turnaround of a system users and stakeholders had previously criticized, validating both the rebuild's architecture and the team's execution.</li>
-        <li>Architected the platform's two core microservices along clear domain boundaries: a Drools-based rules engine governing all UI field behavior, and a secure persistence service acting as the sole authorized gateway to internal systems.</li>
-        <li>Contributed engineering feasibility input to POC design reviews for new KYC-related applications alongside product leadership.</li>
-        <li>Led the Java 17→21 migration ahead of the MVP release with minimal disruption to the delivery timeline.</li>
-        <li>Sole backend engineer on-call during live-market hours, monitoring and maintaining services in real time while developing upcoming features.</li>
-        <li>Automated over 60% of previously manual onboarding and KYC logic and improved responsiveness by 60–80% over the legacy platform.</li>
-        <li>Built a generic recursive Cosmos DB save utility on the Patch API supporting arbitrary object structures at 5–10 ms response times, working around a known SDK limitation.</li>
-        <li>Designed a workflow system pairing database-controlled state with a dynamic rules layer, validated as a POC and shipped to production.</li>
+        <li>Automated over 60% of previously manual onboarding and KYC logic and improved responsiveness by 60–80% over the legacy platform, reducing manual touchpoints for onboarding, compliance, and operations teams.</li>
+        <li>Designed and built the platform's dynamic workflow orchestration engine on Spring Boot and SQL Server. Built the Camunda POC end-to-end with the IT manager; when a major Camunda upgrade broke the code months before MVP, rebuilt the entire workflow as a custom engine in one month.</li>
+        <li>Its orchestration APIs cover every account-opening scenario — request, validation, assignment, Front Office and Retirement Services approval, KYC approval, DocuSign signature, SWP submission approval — with token- and role-based authorization, retries with backoff, and fault tolerance so no request ends in a broken state. New steps and approval paths are configured in the database without code changes.</li>
+        <li>Architected the two core microservices along clear domain boundaries: a Drools-based rules engine governing all UI field behavior, with dynamic completion validation synced to the Angular UI for real-time, millisecond feedback, and a secure persistence service acting as the sole authorized gateway to internal systems.</li>
+        <li>Delivered the document collection and e-signature workflow: UI and backend validation of required documents by account type and client, document storage APIs on Azure Blob, and production support of the DocuSign integration, including resolving live e-signature incidents.</li>
+        <li>Built the KYC/AML screening API against LexisNexis from vendor documentation as the POC for the onboarding KYC integration; contributing to the Instant ID evaluation and assisting the downstream IPS and KYC applications.</li>
+        <li>Owned the data layer: Cosmos DB primary store (a generic recursive Patch-API save utility at 5–10 ms, working around a known SDK upsert limitation), SQL Server workflow state, and Snowflake. Built a Python/Streamlit application on Snowflake that converts deprecated AOP 1.0 data into business-ready documents, used weekly by the business to migrate legacy accounts.</li>
+        <li>Automated testing of onboarding flows with JUnit and Mockito; partnered with TQA on workflow-scenario automation scripts.</li>
+        <li>Led the Java 17→21 migration ahead of the MVP release; sole backend engineer on-call during live-market hours; grew into full-stack delivery of Angular features alongside the Spring Boot services.</li>
         <li>Mentored a summer intern new to enterprise Java through shipping several production APIs.</li>
       </ul>
 
       <figure class="arch-diagram">
-        <svg viewBox="0 0 770 520" role="img" aria-label="Architecture diagram: the Drools rules engine and client UI exchange triggers and form state; the client UI and persistence service exchange pushed and returned data; the persistence service directly reads and writes its own database (Cosmos DB and MSSQL); the persistence service also makes external API calls to domain services, the only outside microservices it's authorized to reach; domain services pull from a Snowflake database; the persistence service itself also feeds the separate SWP Forms application; for one specific case, shown dashed, the persistence service also calls the rules engine synchronously and updates data based on the response; the rules engine itself never calls domain services or Snowflake.">
+        <svg viewBox="0 0 770 520" role="img" aria-label="Architecture diagram: the Drools rules engine and client UI exchange triggers and form state; the client UI and persistence service exchange pushed and returned data; the persistence service directly reads and writes its own database (Cosmos DB and SQL Server); the persistence service also makes external API calls to domain services, the only outside microservices it's authorized to reach; domain services pull from a Snowflake database; the persistence service itself also feeds the separate SWP Forms application; for one specific case, shown dashed, the persistence service also calls the rules engine synchronously and updates data based on the response; the rules engine itself never calls domain services or Snowflake.">
           <defs>
             <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
               <path d="M0,0 L10,5 L0,10 z" fill="currentColor"></path>
@@ -166,7 +171,7 @@
 
           <rect x="210" y="430" width="170" height="58" rx="10" fill="none" stroke="currentColor" stroke-width="1.5"></rect>
           <text x="295" y="457" text-anchor="middle" font-size="14" font-weight="600" fill="currentColor">Database</text>
-          <text x="295" y="476" text-anchor="middle" font-size="12" fill="currentColor" opacity="0.65">Cosmos DB · MSSQL</text>
+          <text x="295" y="476" text-anchor="middle" font-size="12" fill="currentColor" opacity="0.65">Cosmos DB · SQL Server</text>
 
           <rect x="430" y="210" width="155" height="64" rx="10" fill="none" stroke="currentColor" stroke-width="1.5"></rect>
           <text x="507" y="237" text-anchor="middle" font-size="14" font-weight="600" fill="currentColor">Domain Services</text>
@@ -206,7 +211,7 @@
           <line x1="402" y1="154" x2="388" y2="168" stroke="currentColor" stroke-width="1.5" opacity="0.55"></line>
           <text x="407" y="165" font-size="12" fill="currentColor" opacity="0.65">no direct access</text>
         </svg>
-        <figcaption>The persistence service directly reads and writes its own database (Cosmos DB and MSSQL), and separately calls domain services, the only outside microservices it's authorized to reach; those domain services pull from Snowflake. The persistence service itself also feeds the separate SWP Forms application. For one specific case (dashed), it also calls the rules engine synchronously and updates data based on the response. The rules engine itself never reaches domain services or Snowflake.</figcaption>
+        <figcaption>The persistence service directly reads and writes its own database (Cosmos DB and SQL Server), and separately calls domain services, the only outside microservices it's authorized to reach; those domain services pull from Snowflake. The persistence service itself also feeds the separate SWP Forms application. For one specific case (dashed), it also calls the rules engine synchronously and updates data based on the response. The rules engine itself never reaches domain services or Snowflake.</figcaption>
       </figure>
     </article>
 
@@ -220,27 +225,31 @@
         cut processing time for 500+ business rules from several seconds to 50–100 ms using fact
         injection, agenda groups, and salience-based prioritization. Delivered the base
         architecture and MVP in 3 months before handoff; later extended to power a second
-        production application.
+        production application. After handoff, onboarded the successor engineer and resolved
+        production issues through Dec 2025.
       </p>
     </article>
 
     <article class="case-study">
       <div class="case-header">
-        <h3>Backend Developer — CashApp (Financial Transaction System)</h3>
+        <h3>Backend Developer — CashApp (Money-Movement Platform: ACH, Wires, Check)</h3>
         <span class="case-meta">May 2022 – Aug 2024</span>
       </div>
       <p>
-        Mentored by a 20-year architect on a 3-person team; became a primary contributor on core
-        transaction-processing design across an 18-month POC-to-MVP build and 2 years of
-        enhancements. Became the team's primary production maintainer, personally overseeing
-        live market-hours processing of transactions worth tens of millions of dollars daily.
+        Mentored by a 20-year architect on a 3-person team; core contributor from POC through MVP to
+        production on the High Net Worth business's money-movement platform, across an 18-month
+        POC-to-MVP build and 2 years of enhancements. Became one of the team's two primary production
+        maintainers, personally overseeing live market-hours processing of transactions worth tens of
+        millions of dollars daily.
       </p>
       <ul>
-        <li>Owned the end-to-end financial processing lifecycle for $10M+ in daily transactions ($106B+ lifetime): bank confirmations, OFAC compliance scans, and government audit-trail processing.</li>
+        <li>Owned the end-to-end financial processing lifecycle for $10M+ in daily transactions ($106B+ lifetime) against strict settlement cut-offs, never rolled to the next business day: bank confirmations, OFAC screening, AML monitoring, compliance reconciliation, and government audit-trail processing.</li>
+        <li>Built ACH, wire, and check processing: NACHA, wire, and positive-pay file generation and parsing, with Axway and Azure Blob file integrations.</li>
         <li>Eliminated production deadlock failures, dropping from 2–5 incidents per day to zero, using optimistic concurrency control, retryable services, and custom thread pool executors.</li>
-        <li>Designed an event-driven architecture on Azure Event Grid powering 20+ heavy scheduled jobs, several on 5-minute cycles, including OFAC scanning and bank posting.</li>
+        <li>Hand-built the platform's Spring/SQL Server transaction workflows and designed an event-driven architecture on Azure Event Grid powering 20+ monitored scheduled batch jobs, several on 5-minute cycles, including OFAC scanning and bank posting.</li>
         <li>Implemented SAGA choreography over RabbitMQ for cross-service transactions, later migrating messaging to Azure Service Bus.</li>
-        <li>Assisted the team's Java 8→21 upgrade and drove post-MVP enhancements, including FIS Global Plus posting integration and Azure-based check-reading AI.</li>
+        <li>Built FIS Global Plus accounting, Cash Agent, external payment, and Azure-based check-reading AI integrations; later assisted the team's Java 8→21 upgrade.</li>
+        <li>Owned root cause analysis of production incidents against SLAs and TQA release sign-off; delivered on Azure with Kubernetes-based deployments, GitLab/Bamboo CI/CD, and ServiceNow incident and change tracking.</li>
         <li>Led technical design discussions across cross-functional groups of 20–30 with product owners and business analysts.</li>
       </ul>
     </article>
@@ -253,8 +262,8 @@
       Franklin Templeton as a contractor through Brillio; delivery on my first project earned a
       two-year extension. The lead architect then hand-picked me to build the base architecture
       for a second product. Senior architects and my manager recommended me for the lead role on
-      the flagship rebuild, and I was converted from contractor to full-time employee along the
-      way. Each advancement came from people I'd delivered for asking to keep working with me.
+      the flagship rebuild, and Brillio converted me from contractor to full-time employee in
+      June 2025. Each advancement came from people I'd delivered for asking to keep working with me.
       That rebuild's production release was recognized by leadership as a turnaround of a
       platform users and stakeholders had previously criticized.
     </p>
@@ -265,7 +274,9 @@
       strict on data, where any missed window or incomplete information meant a restart or a push
       to the next business day's settlement. We never let a transaction spill over: coverage was
       coordinated down to staggered lunches so one of us was always available, often in real-time
-      coordination with teams across the firm.
+      coordination with teams across the firm to post and settle through FIS Global Plus. That
+      same experience is what let me replace Camunda on the onboarding rebuild in a month with a
+      workflow engine of my own design.
     </p>
     <p>
       I bring the rigor of regulated finance, things like KYC and OFAC compliance, government
@@ -277,9 +288,10 @@
       and teaching myself banking, settlement, and compliance from zero showed me I can pick up
       almost anything given enough time, so I keep pushing for the next thing I don't know yet
       instead of settling into what I've already learned. AI is part of that now too. It's made
-      learning new tools and ideas faster than I expected, and I want to see how far that goes.
-      Still, I'm careful with it: I use it to move faster, not to skip the part where I actually
-      understand what I'm building.
+      learning new tools and ideas faster than I expected, and I want to see how far that goes:
+      I'm currently working toward the Anthropic Claude Certified Developer and Microsoft Azure AI
+      &amp; Agents Developer Associate certifications. Still, I'm careful with it: I use it to move
+      faster, not to skip the part where I actually understand what I'm building.
     </p>
   </section>
 
@@ -293,16 +305,18 @@
     <p>
       The practice I built around it is test-driven at its core. Test suites are written from
       business requirements first; AI agents implement against them; and every change is gated by
-      agent-driven code review and agent-authored pull requests via GitHub MCP on Copilot CLI —
-      under a standing rule that existing functional tests are never broken.
+      agent-driven code review and agent-authored pull requests via GitHub MCP on Copilot CLI, so
+      AI-generated output is validated before it touches anything production-critical — under a
+      standing rule that existing functional tests are never broken.
     </p>
     <p>
       I packaged that discipline into a shared copilot-instructions.md (architecture, coding
       standards, code-comment conventions, and structured commit messages keyed to Jira ID,
       causation, and rationale), custom CLI commands with Jira integration, and a Python tool that
       aligns database schemas and data across environments — all adopted by other projects. I then
-      ran knowledge-transfer sessions on prompt and loop engineering that onboarded my whole AOP 2.0
-      team and the leads of CashApp and SWP Forms.
+      ran knowledge-transfer sessions on prompt and loop engineering, reducing token usage, and
+      optimizing agent efficiency that onboarded all 5 AOP 2.0 engineers and the leads of CashApp
+      and SWP Forms.
     </p>
     <p>
       I first taught myself these workflows on personal time with Claude Code — parallel
@@ -320,35 +334,52 @@
     <div class="skills-grid">
       <div class="skill-group">
         <h3>Languages</h3>
-        <p><span class="skill-chip">Java 8/17/21 (multi-version migrations)</span><span class="skill-chip">Python</span><span class="skill-chip">C++</span><span class="skill-chip">SQL</span><span class="skill-chip">JavaScript (ES6)</span><span class="skill-chip">TypeScript</span></p>
+        <p><span class="skill-chip">Java 8/17/21 (led multi-version migrations)</span><span class="skill-chip">Python (Streamlit, tooling &amp; automation)</span><span class="skill-chip">SQL</span><span class="skill-chip">TypeScript</span><span class="skill-chip">JavaScript (ES6)</span><span class="skill-chip">C++</span></p>
       </div>
       <div class="skill-group">
         <h3>Backend &amp; Frameworks</h3>
-        <p><span class="skill-chip">Spring Boot</span><span class="skill-chip">Spring MVC</span><span class="skill-chip">Spring Security</span><span class="skill-chip">Spring Cloud (Eureka, Feign, API Gateway)</span><span class="skill-chip">Hibernate/JPA</span><span class="skill-chip">REST APIs</span><span class="skill-chip">Microservices</span><span class="skill-chip">Drools (BRMS)</span><span class="skill-chip">Camunda</span><span class="skill-chip">SAGA Choreography</span><span class="skill-chip">Event-Driven Architecture</span></p>
+        <p><span class="skill-chip">Spring Boot</span><span class="skill-chip">Spring MVC</span><span class="skill-chip">Spring Security</span><span class="skill-chip">Spring Cloud (Eureka, Feign, API Gateway)</span><span class="skill-chip">Spring Batch</span><span class="skill-chip">Spring WebFlux</span><span class="skill-chip">Hibernate/JPA</span><span class="skill-chip">REST &amp; API-first design</span><span class="skill-chip">gRPC</span><span class="skill-chip">OpenAPI/Swagger</span><span class="skill-chip">Microservices</span><span class="skill-chip">Distributed Systems</span><span class="skill-chip">Domain-Driven Design</span><span class="skill-chip">SAGA Choreography</span><span class="skill-chip">Event-Driven Architecture</span></p>
       </div>
       <div class="skill-group">
-        <h3>Cloud &amp; Infrastructure</h3>
-        <p><span class="skill-chip">Azure (Service Bus, Event Grid, Cosmos DB)</span><span class="skill-chip">AWS (EC2, S3, ECS, Elastic Beanstalk)</span><span class="skill-chip">Docker</span><span class="skill-chip">RabbitMQ</span><span class="skill-chip">Redis</span></p>
+        <h3>Client Onboarding &amp; Account Lifecycle</h3>
+        <p><span class="skill-chip">Account opening &amp; onboarding workflows</span><span class="skill-chip">Dynamic workflow orchestration (custom Spring/SQL Server engine; Camunda/BPMN)</span><span class="skill-chip">Role-based approval routing (Front Office, Compliance, Operations)</span><span class="skill-chip">Drools (BRMS) real-time validation &amp; decisioning</span><span class="skill-chip">KYC/AML &amp; sanctions screening (LexisNexis, Instant ID)</span><span class="skill-chip">DocuSign e-signature &amp; document collection</span><span class="skill-chip">Azure Blob document storage</span><span class="skill-chip">Regulatory workflows &amp; audit trails</span><span class="skill-chip">OAuth2/OIDC &amp; role-based authorization</span></p>
+      </div>
+      <div class="skill-group">
+        <h3>Money Movement &amp; Payments</h3>
+        <p><span class="skill-chip">ACH, wires, check</span><span class="skill-chip">NACHA, wire &amp; positive-pay files</span><span class="skill-chip">Axway file integrations</span><span class="skill-chip">FIS Global Plus accounting</span><span class="skill-chip">Cash Agent</span><span class="skill-chip">AML monitoring</span><span class="skill-chip">OFAC screening</span></p>
+      </div>
+      <div class="skill-group">
+        <h3>Front-End &amp; Full Stack</h3>
+        <p><span class="skill-chip">Angular (production UI alongside Spring services)</span><span class="skill-chip">React</span><span class="skill-chip">TypeScript</span></p>
+      </div>
+      <div class="skill-group">
+        <h3>Azure &amp; Cloud</h3>
+        <p><span class="skill-chip">Cosmos DB</span><span class="skill-chip">Service Bus</span><span class="skill-chip">Event Grid</span><span class="skill-chip">Azure Functions</span><span class="skill-chip">Key Vault</span><span class="skill-chip">Blob Storage</span><span class="skill-chip">API Management</span><span class="skill-chip">Entra ID (Azure AD)</span><span class="skill-chip">Application Insights</span><span class="skill-chip">Log Analytics (KQL)</span><span class="skill-chip">AWS (EC2, S3, ECS)</span><span class="skill-chip">Kubernetes</span><span class="skill-chip">Docker</span><span class="skill-chip">RabbitMQ</span><span class="skill-chip">Kafka</span><span class="skill-chip">Redis</span></p>
+      </div>
+      <div class="skill-group">
+        <h3>DevOps, Release &amp; Observability</h3>
+        <p><span class="skill-chip">CI/CD (GitLab, Bamboo, GitHub Actions, Azure Pipelines, Jenkins)</span><span class="skill-chip">SonarQube</span><span class="skill-chip">Datadog</span><span class="skill-chip">ServiceNow incident/change tracking</span><span class="skill-chip">Production support</span><span class="skill-chip">TQA release sign-off</span><span class="skill-chip">Maven</span><span class="skill-chip">Gradle</span><span class="skill-chip">Git/GitHub</span></p>
       </div>
       <div class="skill-group">
         <h3>Databases</h3>
-        <p><span class="skill-chip">MSSQL</span><span class="skill-chip">MySQL</span><span class="skill-chip">MongoDB</span><span class="skill-chip">Azure Cosmos DB</span></p>
+        <p><span class="skill-chip">Azure Cosmos DB</span><span class="skill-chip">MongoDB</span><span class="skill-chip">SQL Server (MSSQL, stored procedures)</span><span class="skill-chip">Snowflake</span><span class="skill-chip">MySQL</span></p>
       </div>
       <div class="skill-group">
         <h3>AI-Assisted Development</h3>
-        <p><span class="skill-chip">GitHub Copilot (premium/multi-model)</span><span class="skill-chip">Claude Code (parallel git-worktree workflows)</span><span class="skill-chip">Copilot CLI &amp; Claude Code CLI</span><span class="skill-chip">Prompt-Driven Development</span><span class="skill-chip">AI-augmented code review</span></p>
+        <p><span class="skill-chip">GitHub Copilot (IntelliJ, Copilot CLI, multi-model)</span><span class="skill-chip">GitHub MCP (agent-authored PRs &amp; code review)</span><span class="skill-chip">Claude Code (parallel git-worktree workflows)</span><span class="skill-chip">TDD-gated agent code generation</span><span class="skill-chip">Prompt &amp; loop engineering</span><span class="skill-chip">Token-usage optimization</span><span class="skill-chip">copilot-instructions.md standards</span></p>
       </div>
       <div class="skill-group">
         <h3>Concurrency</h3>
         <p><span class="skill-chip">Multithreading</span><span class="skill-chip">Custom Thread Pool Executors</span><span class="skill-chip">Optimistic Concurrency Control</span><span class="skill-chip">Retryable Services</span><span class="skill-chip">Deadlock Resolution</span></p>
       </div>
       <div class="skill-group">
-        <h3>Testing &amp; Tools</h3>
-        <p><span class="skill-chip">JUnit</span><span class="skill-chip">Mockito</span><span class="skill-chip">JaCoCo</span><span class="skill-chip">Postman</span><span class="skill-chip">Maven</span><span class="skill-chip">Git/GitHub</span><span class="skill-chip">Jira</span><span class="skill-chip">Agile/Scrum</span><span class="skill-chip">Kanban</span></p>
+        <h3>Testing &amp; Process</h3>
+        <p><span class="skill-chip">JUnit</span><span class="skill-chip">Mockito</span><span class="skill-chip">JaCoCo</span><span class="skill-chip">Regression &amp; API test automation</span><span class="skill-chip">Postman</span><span class="skill-chip">Root cause analysis</span><span class="skill-chip">Incident management against SLAs</span><span class="skill-chip">Code review &amp; branching strategy</span><span class="skill-chip">Technical documentation</span><span class="skill-chip">Agile/Scrum</span><span class="skill-chip">Jira</span><span class="skill-chip">Working knowledge: PostgreSQL, Kotlin, Go, GraphQL</span></p>
       </div>
       <div class="skill-group">
-        <h3>Education</h3>
+        <h3>Education &amp; Certifications</h3>
         <p class="skill-text">San Diego State University — B.S. Computer Science</p>
+        <p class="skill-text">In progress: Anthropic Claude Certified Developer – Foundations; Microsoft Azure AI &amp; Agents Developer Associate</p>
       </div>
     </div>
   </section>
